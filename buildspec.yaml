@@ -12,7 +12,7 @@ phases:
       - echo Building the Docker image...
       - echo "acess key"
       - echo $AWS_ACCESS_KEY_ID
-      - docker build -t test_build:latest .
+      - docker build -t test_build:latest --buil-arg AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID --build-arg AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY --build-arg AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN .
   post_build:
     commands:
       - echo Build completed on `date`
