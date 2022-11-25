@@ -4,10 +4,14 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 365638482223.dkr.ecr.us-east-1.amazonaws.com
+      - eval $(aws sts assume-role --role-arn arn:aws:iam::365638482223:role/admin_acces_assume_role_can --role-session-name test_12 | jq -r '.Credentials| "export AWS_ACCESS_KEY_ID=\(.AccessKeyId)\nexport AWS_SECRET_ACCESS_KEY=\(.SecretAccessKey)\nexport AWS_SESSION_TOKEN=\(.SessionToken)\n"')
+    
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
+      - echo "acess key"
+      - echo $AWS_ACCESS_KEY_ID
       - docker build -t test_build:latest .
   post_build:
     commands:
