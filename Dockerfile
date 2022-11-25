@@ -6,6 +6,13 @@ RUN apk add --no-cache \
     && pip3 install --no-cache-dir \
         awscli \
     && rm -rf /var/cache/apk/*
+
+ARG AWS_ACCESS_KEY_ID
+ARG AWS_SECRET_ACCESS_KEY
+ARG AWS_SESSION_TOKEN
+ENV AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+ENV AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+ENV AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN
 RUN aws --version
 RUN aws s3 ls
 WORKDIR /app
