@@ -1,7 +1,7 @@
 FROM 793787590926.dkr.ecr.us-east-1.amazonaws.com/node:16.15.0
 RUN apt-get update && apt-get install \ 
         python3 \
-        python3-pip \
+        python3-pip -y \
     && pip3 install --upgrade pip \
     && pip3 install --no-cache-dir \
         awscli \
