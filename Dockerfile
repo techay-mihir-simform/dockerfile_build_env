@@ -1,5 +1,5 @@
 FROM 793787590926.dkr.ecr.us-east-1.amazonaws.com/node:16.15.0
-RUN apt-get update && apt-get install --no-cache \ 
+RUN apt-get update && apt-get install \ 
         python3 \
         py3-pip \
     && pip3 install --upgrade pip \
