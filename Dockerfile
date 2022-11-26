@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install \
     && pip3 install --no-cache-dir \
         awscli \
     && rm -rf /var/cache/apk/*
-
+WORKDIR /app
 ARG AWS_ACCESS_KEY_ID
 ARG AWS_SECRET_ACCESS_KEY
 ARG AWS_SESSION_TOKEN
@@ -16,6 +16,6 @@ ENV AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN
 RUN aws --version
 RUN aws s3 ls
 RUN aws s3 cp s3://testhasfghshjafdhafkdhfahabucket/test.txt ./
-WORKDIR /app
+
 COPY . ./
 RUN ls 
