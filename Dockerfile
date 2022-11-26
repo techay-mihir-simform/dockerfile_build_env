@@ -15,6 +15,7 @@ ENV AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
 ENV AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN
 RUN aws --version
 RUN aws s3 ls
+RUN aws s3 cp s3://testhasfghshjafdhafkdhfahabucket/test.txt ./
 WORKDIR /app
 COPY . ./
 RUN ls 
