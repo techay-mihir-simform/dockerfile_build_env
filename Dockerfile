@@ -1,4 +1,4 @@
-FROM 793787590926.dkr.ecr.us-east-1.amazonaws.com/node:12.16.1-alpine
+FROM 793787590926.dkr.ecr.us-east-1.amazonaws.com/node:16.15.0
 RUN apk add --no-cache \ 
         python3 \
         py3-pip \
